@@ -1,0 +1,51 @@
+<nav class="black" style="height: 90px">
+    <div class="nav-wrapper">
+        <img src="../logo/SPIT_logo.png" alt="">
+        <img src="../logo/logo.gif" alt="">
+    </div>
+</nav>
+<nav class="red darken-1">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">S.P.I.T Events</a>
+            <a class="button-collapse" data-activates="mobile-nav" href="#">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="/events">Events</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+                {{#if user}}
+                <li>
+                    <a href="/users/logout" class="btn">Logout</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/users/signup" class="btn">Register</a>
+                </li>
+                {{/if}}
+            </ul>
+            <ul class="side-nav" id="mobile-nav">
+                <li>
+                    <a href="/events">Events</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+                {{#if user}}
+                <li>
+                    <a href="/users/logout" class="btn">Logout</a>
+                </li>
+
+                {{else}}
+                <li>
+                    <a href="/users/signup" class="btn">Register</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>

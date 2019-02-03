@@ -1,0 +1,9 @@
+{{#if error}}
+<div class="chip red lighten-3" style="margin-top: 10px;">
+    {{error}}
+</div>
+{{/if}} {{#each errors}}
+<div class="chip red lighten-3" style="margin-top: 10px;">
+    {{text}}
+</div>
+{{else}} {{/each}}

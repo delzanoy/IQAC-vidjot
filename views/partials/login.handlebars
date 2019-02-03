@@ -1,0 +1,20 @@
+<h4 class="center" style="padding-bottom: 10px;">Login</h4>
+<form action="/users/login" method="post">
+  <div class="row">
+    <div class="input-field col l6 s6 offset-s3 offset-l3">
+      <input id="email" type="text" name="email">
+      <label for="email">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col l6 s6 offset-s3 offset-l3">
+      <input id="password" type="password" class="validate" name="password">
+      <label for="password">Password</label>
+    </div>
+  </div>
+
+  <div class="center-align">
+    <a href="/users/forgotPassword">Forgot password ?</a><br><br>
+    <button class="btn-large green" type="submit" value="Login">Login</button>
+  </div>
+</form>

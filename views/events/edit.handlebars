@@ -1,0 +1,88 @@
+<div class="container" style="padding-top: 20px;">
+    <h3 class="center-align">Edit an event</h3>
+    <form action="/events/myevents/edit/{{event._id}}?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field">
+                    <input class="form-control" id="eventTitle" type="text" name="eventTitle" value="{{event.eventTitle}}">
+                    <label for="eventTitle">Title</label>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="input-field">
+                    <select name="eventType">
+                        <option value="{{event.eventType}}" selected>{{event.eventType}}</option>
+                        <option value="Academic">Academic</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <label>Event type</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field">
+                    <input type="text" id="eventDate" class="datepicker" name="eventDate" value="{{formatDate event.eventDate day="numeric" month="long"
+                        year="numeric"}}">
+                    <label for="eventDate">Choose a Date</label>
+                </div>
+            </div>
+            <div class="col s6">
+                <div>
+                    <input type="text" id="eventTime" class="timepicker" name="eventTime" value="{{event.eventTime}}">
+                    <label for="time">Choose a Time</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <div class="input-field">
+                    <input id="eventVenue" type="text" name="eventVenue" value="{{event.eventVenue}}">
+                    <label for="eventVenue">Venue</label>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Upload Poster</span>
+                        <input type="file" id="poster" name="poster">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input type="text" class="file-path">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="input-field">
+            <textarea class="materialize-textarea" id="eventDescription" name="eventDescription">{{event.eventDescription}}</textarea>
+            <label for="eventDescription">Event Description</label>
+        </div>
+        <div class="row right-align">
+            <button type="reset" class="btn btn-large pink lighten-3 btn-flat">Reset</button>
+            <button type="submit" class="btn btn-large green waves-effect waves-light">Edit</button>
+        </div>
+    </form>
+</div>
+
+{{#if user}}
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue darken-4">
+        <i class="material-icons">settings</i>
+    </a>
+    <ul>
+        <li>
+            <a class="btn-floating teal lighten-2" href="/events/myevents">
+                <i class="material-icons">view_list</i>
+            </a>
+        </li>
+        <li>
+            <a class="btn-floating green" href="/events/add">
+                <i class="material-icons">add</i>
+            </a>
+        </li>
+    </ul>
+</div>
+{{else}} {{/if}}

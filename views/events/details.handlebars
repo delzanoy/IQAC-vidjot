@@ -1,0 +1,68 @@
+<div class="container" style="padding-top: 20px;">
+    <div class="row">
+        <div class="col s4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">{{event.eventTitle}}</span>
+                    <p>{{event.eventDescription}}</p>
+                </div>
+                <!-- ADD LINKS -->
+                <div class="card-action">
+                    Date: {{formatDate event.eventDate day="numeric" month="long" year="numeric"}} {{event.eventTime}}
+                </div>
+                <div class="card-action">
+                    Venue : {{event.eventVenue}}
+                </div>
+                <div class="card-action">
+                    Type : {{event.eventType}}
+                </div>
+                <div class="card-action">
+                    <form action="/events/images/{{event._id}}" method="GET">
+                        <button type="submit" class="btn">View Images</button>
+                    </form>
+                    <a href="/events/images/{{event._id}}">View All</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s8">
+            <form action="/events/upload/{{event._id}}" method="POST" enctype="multipart/form-data">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input name="myImage" type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <button type="submit" class="btn">Upload</button>
+            </form>
+            {{#if msg}}
+            <span>{{ msg }}</span>
+            {{else}} {{/if}}
+            {{#if file}}
+            <img src="{{file}}" alt="" class="responsive-img">
+            {{else}} {{/if}}
+        </div>
+    </div>
+</div>
+
+{{#if user}}
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue darken-4">
+        <i class="material-icons">settings</i>
+    </a>
+    <ul>
+        <li>
+            <a class="btn-floating teal lighten-2" href="/events/myevents">
+                <i class="material-icons">view_list</i>
+            </a>
+        </li>
+        <li>
+            <a class="btn-floating green" href="/events/add">
+                <i class="material-icons">add</i>
+            </a>
+        </li>
+    </ul>
+</div>
+{{else}} {{/if}}

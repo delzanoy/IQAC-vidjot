@@ -1,0 +1,57 @@
+<div class="container">
+
+    <h4 class="center">New User Registration</h4>
+
+    <form action="/users/signup" method="post">
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="hidden" value="student" class="validate" id="type" name="type">
+                <input id="firstName" type="text" class="validate" name="firstName" value="{{firstName}}">
+                <label for="firstName">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="lastName" type="text" class="validate" name="lastName" value="{{lastName}}">
+                <label for="lastName">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="email" type="email" class="validate" name="email" value="{{email}}">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="ernumber" type="text" class="validate" name="ernumber" value="{{ernumber}}">
+                <label for="ernumber">Enrollment Number</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="password" type="password" class="validate" name="password">
+                <label for="password">Password</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="repassword" type="password" class="validate" name="repassword">
+                <label for="repassword">Retype Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <div class="input-field">
+                    <select name="branch">
+                        <option value="" disabled selected>Select Options</option>
+                        <option value="MCA">MCA</option>
+                        <option value="BE">BE</option>
+                        <option value="ME">ME</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <label>Branch</label>
+                </div>
+            </div>
+            <div class="col s6 right-align">
+                <button type="submit" class="btn btn-large green waves-effect waves-light">Register</button>
+                <button type="reset" class="btn btn-large btn-flat">Reset</button>
+            </div>
+        </div>
+    </form>
+
+</div>

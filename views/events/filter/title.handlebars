@@ -1,0 +1,29 @@
+<div class="container">
+    {{event}}
+    <br>
+    {{event.eventTitle}}
+    {{#if event}}
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Venue</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{event.eventTitle}}</th>
+                <th>{{event.eventVenue}}</th>
+                {{!-- <th>{{event.eventDate day="numeric" month="long" year="numeric"}}</th> --}}
+                <th>{{event.eventTime}}</th>
+                <th>{{event.eventType}}</th>
+            </tr>
+        </tbody>
+    </table>
+    {{else}}
+
+    {{/if}}
+</div>

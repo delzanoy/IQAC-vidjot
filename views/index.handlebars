@@ -1,0 +1,209 @@
+{{#if user}}
+<div class="container">
+  {{#each alerts}}
+  <div class="chip green lighten-3" style="padding-top:10px;">
+    {{text}}
+  </div>
+  {{else}} {{/each}}
+
+  {{#if user.isAdmin}}
+  <h3 class="center-align">Admin Dashboard</h3>
+  Welcome {{user.email}}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">Admin Options</span>
+    </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-width-fixed">
+        <li class="tab">
+          <a href="#events">Events</a>
+        </li>
+        <li class="tab">
+          <a href="#users">Users</a>
+        </li>
+        <li class="tab">
+          <a href="#invite">Invite</a>
+        </li>
+        <li class="tab">
+          <a href="#report">Reports</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-content">
+      <div id="events">
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Venue</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each alerts}}
+            <div class="chip green lighten-3">
+              {{text}}
+            </div>
+            {{else}} {{/each}} {{#each events}}
+            <tr>
+              <th>{{eventTitle}}</th>
+              <th>{{eventVenue}}</th>
+              <th>{{formatDate eventDate day="numeric" month="long" year="numeric"}}</th>
+              <th>{{eventTime}}</th>
+              <th>{{eventType}}</th>
+            </tr>
+            {{else}}
+            <h3 class="center-align">No events listed.</h3>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div id="users">
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>email</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each alerts}}
+            <div class="chip green lighten-3">
+              {{text}}
+            </div>
+            {{else}} {{/each}} {{#each users}}
+            <tr>
+              <th>{{email}}</th>
+              <th>{{type}}</th>
+              <th>{{confirmed}}</th>
+              <th>{{formatDate dateJoined day="numeric" month="long" year="numeric"}}</th>
+            </tr>
+            {{else}}
+            <h3 class="center-align">No users listed.</h3>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div id="invite">
+        <form action="/users/invite/student" method="post">
+          <div class="row">
+            <div class="col s2 right-align">
+              <h3>Student</h3>
+            </div>
+            <div class="input-field col s8">
+              <input id="inviteStudent" type="text" class="validate" name="inviteStudent">
+              <label for="inviteStudent">e-mail</label>
+            </div>
+            <div class="col s2 right-align">
+              <button type="submit" class="btn btn-large green waves-effect waves-light">Send</button>
+            </div>
+          </div>
+        </form>
+        <form action="/users/invite/faculty" method="post">
+          <div class="row">
+            <div class="col s2 right-align">
+              <h3>Faculty</h3>
+            </div>
+            <div class="input-field col s8">
+              <input id="inviteFaculty" type="text" class="validate" name="inviteFaculty">
+              <label for="inviteFaculty">e-mail</label>
+            </div>
+            <div class="col s2 right-align">
+              <button type="submit" class="btn btn-large green waves-effect waves-light">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="report">
+        <form action="/events/filter/title" method="post">
+          <div class="row">
+            <div class="col s2">
+              <h3>Event</h3>
+            </div>
+            <div class="input-field col s8">
+              <input id="eventTitleFilter" type="text" class="validate" name="eventTitleFilter">
+              <label for="eventTitleFilter">Event</label>
+            </div>
+            <div class="col s2">
+              <button type="submit" class="btn btn-large green waves-effect waves-light">Send</button>
+            </div>
+          </div>
+        </form>
+        <form action="/events/report" method="post">
+          <div class="row">
+            <div class="col s2 offset-s5">
+              <button type="submit" class="btn btn-large blue waves-effect waves-light">Generate</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  {{else}}
+  <h3 class="center-align">User Dashboard</h3>
+  Welcome {{user.email}}
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Venue</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each events}}
+      <tr>
+        <th>{{eventTitle}}</th>
+        <th>{{eventVenue}}</th>
+        <th>{{formatDate eventDate day="numeric" month="long" year="numeric"}}</th>
+        <th>{{eventTime}}</th>
+        <th>{{eventType}}</th>
+      </tr>
+      {{else}}
+      <h3 class="center-align">You have created no events.</h3>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+
+
+</div>
+
+
+
+{{else}}
+<div class="row" style="padding-top: 100px;">
+  <div class="col l7 hide-on-med-and-down">
+    <marquee behavior="scroll" direction="left">
+      <img src="../images/1.jpg" height="80px" alt="">
+      <img src="../images/2.jpg" height="80px" alt="">
+      <img src="../images/3.jpg" height="80px" alt="">
+      <img src="../images/4.jpg" height="80px" alt="">
+      <img src="../images/5.jpg" height="80px" alt="">
+      <img src="../images/6.jpg" height="80px" alt="">
+    </marquee>
+    <h1 class="center-align">Welcome</h1>
+    <p class="center-align">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, consequatur quia facilis magnam repellendus
+      perspiciatis
+      et libero nostrum omnis quae adipisci eum ipsam iste exercitationem. Ab, nesciunt similique cum consequuntur
+      facilis
+      ullam illum maxime omnis sequi, tempore saepe expedita sunt iste eligendi reiciendis in voluptatibus blanditiis
+      possimus
+      aliquid error assumenda!
+    </p>
+  </div>
+  <div class="col l5 s12">
+    {{> login}}
+  </div>
+</div>
+{{/if}}

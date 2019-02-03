@@ -1,0 +1,33 @@
+{
+  "name": "iqac",
+  "version": "1.0.0",
+  "description": "Application to create and manage events.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "delanoy",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "fs-extra": "^7.0.0",
+    "handlebars-intl": "^1.1.2",
+    "jsonwebtoken": "^8.3.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.22.2",
+    "mongo-xlsx": "^1.0.12",
+    "mongoose": "^5.2.9",
+    "multer": "^1.4.1",
+    "nodemailer": "^4.6.8",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "puppeteer": "^1.10.0",
+    "xoauth2": "^1.2.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,81 @@
+{{#if user}}
+<ul id="slide-out" class="side-nav">
+    <li>
+        <a href="/events/search">
+            <i class="material-icons">search</i>Search</a>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li>
+        <form action="/events/gallery" method="get">
+        <div class="row right-align">
+            <button type="submit" class="btn btn-large green waves-effect waves-light">Gallery</button>
+        </div>
+    </form>
+    </li>
+</ul>
+<a href="#!" data-activates="slide-out" class="button-collapse-event">
+    <i class="material-icons">menu</i>
+</a>
+{{else}} {{/if}}
+
+
+<h3 class="center-align">Events</h3>
+<div class="container">
+    <div class="row">
+        {{#each events}}
+        <div class="col s12 m4">
+            <div class="card small hoverable">
+                <div class="card-image waves-effect waves-light waves-block">
+                    <img class="activator" src="img/img4.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator">{{eventTitle}}
+                        <i class="material-icons">more_vert</i>
+                    </span>
+                    <p>
+                        <!-- add activator to anything -->
+                        <a href="/events/details/{{_id}}">Read more</a><br> Date: {{formatDate eventDate day="numeric"
+                        month="long"
+                        year="numeric"}} {{eventTime}}
+                    </p>
+                </div>
+                <!-- inside of reveal -->
+                <div class="card-reveal">
+                    <span class="card-title">{{eventTitle}}
+                        <i class="material-icons">close</i>
+                    </span>
+
+                    Created by: {{user}} <br> Venue: {{eventVenue}} <br>
+                    <p style="text-overflow:ellipsis;">{{eventDescription}}</p>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <h5 class="center-align">No events listed.</h5>
+        {{/each}}
+    </div>
+</div>
+
+
+
+{{#if user}}
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue darken-4">
+        <i class="material-icons">settings</i>
+    </a>
+    <ul>
+        <li>
+            <a class="btn-floating teal lighten-2" href="/events/myevents">
+                <i class="material-icons">view_list</i>
+            </a>
+        </li>
+        <li>
+            <a class="btn-floating green" href="/events/add">
+                <i class="material-icons">add</i>
+            </a>
+        </li>
+    </ul>
+</div>
+{{else}} {{/if}}

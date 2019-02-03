@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="/stylesheets/style.css" media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>IQAC</title>
+</head>
+
+<body>
+
+  {{> _navbar}} 
+  
+  <div class="container">
+    {{> _msg}}
+    {{> _errors}}
+  </div>
+  {{{body}}}
+
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/javascripts/materialize.min.js"></script>
+
+  <script>
+    $('.button-collapse').sideNav();
+    $('select').material_select();
+    $('.datepicker').pickadate({
+      selectMonths: true,
+      selectYears: 15,
+      donetext: 'okay',
+      cleartext: 'reset',
+      canceltext: 'cancel',
+      closeOnSelect: true
+    });
+    $('.timepicker').pickatime({
+      default: 'now',
+      twelvehour: true,
+      donetext: 'okay',
+      cleartext: 'reset',
+      canceltext: 'cancel',
+      autoclose: false
+    });
+    $('.dropdown-button').dropdown({
+      constrainWidth: false,
+      hover: true,
+      belowOrigin: true,
+      alignment: 'left'
+    });
+    $('.button-collapse-event').sideNav();
+  </script>
+</body>
+
+</html>

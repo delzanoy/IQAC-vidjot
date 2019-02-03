@@ -1,0 +1,65 @@
+<div class="container">
+    <h4 class="center-align">My Events</h4>
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Venue</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Type</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each alerts}}
+            <div class="chip green lighten-3">
+                {{text}}
+            </div>
+            {{else}} {{/each}} {{#each events}}
+            <tr>
+                <th>{{eventTitle}}</th>
+                <th>{{eventVenue}}</th>
+                <th>{{formatDate eventDate day="numeric" month="long" year="numeric"}}</th>
+                <th>{{eventTime}}</th>
+                <th>{{eventType}}</th>
+                <th><a href="/events/myevents/edit/{{_id}}"><i class="material-icons">edit</i></a> &nbsp;</th>
+                <th>
+                    <form method="post" action="/events/myevents/delete/{{_id}}?_method=DELETE">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" style="background:none!important;
+     color:rgb(190, 34, 34);
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;"><i class="material-icons">delete_forever</i></button>
+                    </form>
+                </th>
+            </tr>
+            {{else}}
+            <h3 class="center-align">You have created no events.</h3>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+{{#if user}}
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue darken-4">
+        <i class="material-icons">settings</i>
+    </a>
+    <ul>
+        <li>
+            <a class="btn-floating teal lighten-2" href="/events/myevents">
+                <i class="material-icons">view_list</i>
+            </a>
+        </li>
+        <li>
+            <a class="btn-floating green" href="/events/add">
+                <i class="material-icons">add</i>
+            </a>
+        </li>
+    </ul>
+</div>
+{{else}} {{/if}}
